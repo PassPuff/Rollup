@@ -5,22 +5,6 @@
   font-family: "Roboto Condensed", sans-serif;
 }
 
-.vh {
-  height: 70vh;
-  width: 100vw;
-  background-color: rgba(79, 207, 0, 0.1);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 10vw;
-  font-weight: bold;
-}
-.vh h1 {
-  padding-top: 300px;
-  text-align: center;
-  font-size: 80px;
-}
-
 .container {
   max-width: 1310px;
   margin: 0 auto;
@@ -78,9 +62,11 @@
 }
 .rollup__list {
   display: flex;
-  height: 70vh;
+  gap: 12px;
+  height: 50vh;
   width: 100%;
   min-width: 100%;
+  min-height: 550px;
   margin: 0;
   padding: 0;
   overflow: hidden;
@@ -97,15 +83,16 @@
   display: flex;
   flex: 1;
   align-items: stretch;
-  transition: all 0.3s ease;
+  transition: flex 0.5s ease;
   overflow: hidden;
   background-repeat: no-repeat;
   background-position: top center;
+  border-radius: 8px;
   color: #fff;
 }
 @media (max-width: 767px) {
   .rollup__item {
-    transition: all 0.7s ease;
+    transition: flex 0.7s ease;
     padding: 8px;
   }
 }
@@ -123,7 +110,7 @@
   flex: 8;
   padding: 0;
 }
-.rollup__item--active:before {
+.rollup__item--active::before {
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.26) 0%, #000 100%);
 }
 .rollup__item--active .rollup__name {
@@ -134,18 +121,22 @@
   top: 0;
   z-index: 20;
   opacity: 1;
-  transition: opacity 0.35s ease 0.3s, top 0.8s ease 0.3s;
+  transition: opacity 0.35s ease 0.3s, top 0.5s ease 0.3s;
+}
+@media (max-width: 767px) {
+  .rollup__item--active .rollup__inner {
+    transition: opacity 0.35s ease 0.3s;
+  }
 }
 .rollup__name {
   position: absolute;
   z-index: 30;
-  top: 100%;
+  top: 92%;
   left: 50%;
   font-size: clamp(18px, 5.5vw, 32px);
   white-space: nowrap;
-  transition: top 0.55s;
+  transition: top 0.35s;
   transform-origin: 0 0;
-  text-transform: uppercase;
   transform: translate(-20px, -50%) rotate(-90deg);
 }
 @media (max-width: 767px) {
@@ -165,7 +156,11 @@
   padding: min(8vw, 42px);
   width: 100%;
   opacity: 0;
-  font-size: clamp(14px, 4.5vw, 24px);
+  font-size: clamp(14px, 2.5vw, 18px);
+  cursor: default;
+}
+.rollup__inner p {
+  line-height: 1.5;
 }
 .rollup__inner::before {
   content: attr(data-title);
