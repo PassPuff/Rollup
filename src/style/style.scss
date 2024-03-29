@@ -107,7 +107,7 @@
     align-items: stretch;
     transition: all 0.3s ease;
     overflow: hidden;
-    background-size: cover;
+    //background-size: cover;
     background-repeat: no-repeat;
     background-position: top center;
     color: #fff;
@@ -125,7 +125,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(180deg, rgb(247 206 3 / 21%) 0%, black 100%);
+      background: linear-gradient(180deg, rgba(247,206,3,0.6713060224089635) 0%, rgba(25,25,25,0.9430147058823529) 56%);
     }
 
     &--active {
