@@ -164,8 +164,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: min(7vw, 34px);
-    padding: min(8vw, 42px);
+    gap: min(5vw, 34px);
+    padding: min(5vw, 42px);
     width: 100%;
     opacity: 0;
     font-size: clamp(14px, 2.5vw, 18px);
@@ -180,7 +180,7 @@
     &::before {
       content: attr(data-title);
       position: relative;
-      font-size: clamp(36px, 4.5vw, 64px);
+      font-size: clamp(24px, 4.5vw, 64px);
     }
   }
 }
