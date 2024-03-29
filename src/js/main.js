@@ -1,23 +1,28 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const artists = document.querySelectorAll(".js-rollup-item");
+const launchRollup = (item) => {
+  const items = document.querySelectorAll(item);
 
-  // Function to remove active class from all artists
+  if (!items) return;
+
+// Function to remove active class from all items
   function removeActiveClasses() {
-    artists.forEach((artist) => {
+    items.forEach((artist) => {
       artist.classList.remove("rollup__item--active");
     });
   }
 
-  // Initialize the first artist as active
-  if (artists.length > 0) {
-    artists[0].classList.add("rollup__item--active");
+// Initialize the first artist as active
+  if (items.length > 0) {
+    items[0].classList.add("rollup__item--active");
   }
 
-  // Add mouseover event listeners to all  artists
-  artists.forEach((artist, index) => {
+// Add mouseover event listeners to all  items
+  items.forEach((artist, index) => {
     artist.addEventListener("mouseover", () => {
       removeActiveClasses();
       artist.classList.add("rollup__item--active");
     });
   });
-});
+}
+
+
+launchRollup(".js-rollup-item");

@@ -75,12 +75,12 @@
     min-height: 550px;
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    //overflow: hidden;
     list-style-type: none;
 
     @media (max-width: 767px) {
       flex-direction: column;
-      height: 100vh;
+      min-height: 100vh;
     }
   }
 
@@ -89,7 +89,7 @@
     display: flex;
     flex: 1;
     align-items: stretch;
-    transition: flex 0.5s ease;
+    transition: flex 0.5s ease, box-shadow 0.3s ease;
     overflow: hidden;
     //background-size: cover;
     background-repeat: no-repeat;
@@ -98,8 +98,7 @@
     color: #fff;
 
     @media (max-width: 767px) {
-      transition: flex 0.7s ease;
-      padding: 8px;
+      padding: 16px;
     }
 
     &:before {
@@ -110,12 +109,17 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(180deg, rgba(247,206,3,0.6713060224089635) 0%, rgba(25,25,25,0.9430147058823529) 56%);
+      background: linear-gradient(180deg, rgb(247 206 3 / 37%) 0%, rgb(25 25 25 / 86%) 56%);
     }
 
     &--active {
       flex: 8;
       padding: 0;
+      box-shadow: 0 7px 20px 0 rgba(66, 62, 62, 0.59);
+
+      @media (max-width: 767px) {
+        box-shadow: none;
+      }
 
       &::before {
         background: linear-gradient(180deg, rgb(0 0 0 / 26%) 0%, #000 100%);
@@ -142,13 +146,13 @@
   &__name {
     position: absolute;
     z-index: 30;
-    top: 92%;
+    top: 100%;
     left: 50%;
     font-size: clamp(18px, 5.5vw, 32px);
     white-space: nowrap;
     transition: top 0.35s;
     transform-origin: 0 0;
-    //text-transform: uppercase;
+    text-transform: uppercase;
     transform: translate(-20px, -50%) rotate(-90deg);
 
     @media (max-width: 767px) {
@@ -165,7 +169,7 @@
     flex-direction: column;
     justify-content: center;
     gap: min(5vw, 34px);
-    padding: min(5vw, 42px);
+    padding: min(4vw, 42px);
     width: 100%;
     opacity: 0;
     font-size: clamp(14px, 2.5vw, 18px);
@@ -173,9 +177,7 @@
 
     p {
       line-height: 1.5;
-
     }
-
 
     &::before {
       content: attr(data-title);
